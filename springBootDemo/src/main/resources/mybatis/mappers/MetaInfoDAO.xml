@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="com.example.demo.dao.MetaInfoDao">
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 metaInfoDto 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+	<select id="selectMetaInfoList" parameterType="String" resultType="map">
+	SELECT  OBJECT_NAME AS objectName	/*한글명*/
+			,ABBR_NAME As abbrName		/*영문명*/
+			,OBJ_RMK1	as objRmk	/*데이터유형*/
+			,DATA_SIZE	as dataSize	/*데이터길이*/
+			,DATA_SIZE2		/*소수점길이*/
+			,TRM_TP			/*표준비표준구분(S:표준, N: 비표준)*/
+			,DOM_NM			/*도메인명*/
+			,CREATE_DT		/*생성일시*/
+			,MODIFY_DT		/*변경일시*/
+	  FROM META_INFO
+	 </select>
+</mapper>
